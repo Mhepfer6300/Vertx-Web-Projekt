@@ -1,4 +1,3 @@
-
 package de.qreator.vertx;
 
 import io.vertx.core.Vertx;
@@ -29,9 +28,13 @@ public class VertxWebFormular {
 
             if (typ.equals("namenKnopf")) {
                 jo.put("typ", "antwort");
-                jo.put("text", "Der Text war " + name);
-                jo.put("passwort", "Der Text war " + passwort);
+                jo.put("text", "Ameldename: " + name);
+                jo.put("passwort", "Das Passwort war " + passwort);
+            } else {
+                jo.put("text", "Anmeldung für " + name + " fehlgeschlagen");
+                jo.put("passwort", "Passwort ungültig ");
             }
+
             response.end(Json.encodePrettily(jo));
         });
 
